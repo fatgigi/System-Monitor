@@ -9,9 +9,8 @@ using std::array;
 
 class Processor {
  public:
-  float Utilization();  // TODO: See src/processor.cpp
+  float Utilization(); 
 
-  // TODO: Declare any necessary private members
  private:
   void GetDiffData(array<long, 2>&, array<long, 2>&, array<long, 2>&);
   void GetLinuxParseCpuData(array<long, 2>&);

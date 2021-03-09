@@ -1,7 +1,6 @@
 #include "processor.h"
 #include "linux_parser.h"
 
-// TODO: Return the aggregate CPU utilization
 float Processor::Utilization() { 
     GetLinuxParseCpuData(cur_cpu_data_);
     array<long, 2> diff_data_ {};

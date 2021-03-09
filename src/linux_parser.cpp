@@ -89,7 +89,7 @@ float LinuxParser::MemoryUtilization() {
   return (memTotal - memFree) / memTotal; 
 }
 
-// TODO: Read and return the total number of processes
+
 int LinuxParser::TotalProcesses() { 
   string key;
   int processes, value;
@@ -107,7 +107,7 @@ int LinuxParser::TotalProcesses() {
   return processes; 
 }
 
-// TODO: Read and return the number of running processes
+
 int LinuxParser::RunningProcesses() { 
   int procsRunning, value;
   string line, key;
@@ -124,7 +124,7 @@ int LinuxParser::RunningProcesses() {
   return procsRunning; 
 }
 
-// TODO: Read and return the system uptime
+
 long LinuxParser::UpTime() { 
   string uptime;
   string line;
@@ -139,7 +139,7 @@ long LinuxParser::UpTime() {
   return 0; 
 }
 
-// TODO: Read and return CPU utilization
+
 vector<std::string> LinuxParser::CpuUtilization() { 
   string line, key, value;
   vector<std::string> cpu_data{};
@@ -156,7 +156,7 @@ vector<std::string> LinuxParser::CpuUtilization() {
   return cpu_data; 
 }
 
-// TODO: Read and return the number of jiffies for the system
+
 long LinuxParser::Jiffies() { 
   vector<string> data = CpuUtilization();
   return stol(data[CPUStates::kUser_]) + stol(data[CPUStates::kNice_]) +
@@ -166,8 +166,7 @@ long LinuxParser::Jiffies() {
         stol(data[CPUStates::kGuest_]) + stol(data[CPUStates::kGuestNice_]);
 }
 
-// TODO: Read and return the number of active jiffies for a PID
-// REMOVE: [[maybe_unused]] once you define the function
+
 long LinuxParser::ActiveJiffies(int pid) { 
   string key, line;
   long int value{0}, active_jiffies{0};
@@ -187,7 +186,7 @@ long LinuxParser::ActiveJiffies(int pid) {
   return active_jiffies;
 }
 
-// TODO: Read and return the number of active jiffies for the system
+
 long LinuxParser::ActiveJiffies() { 
   vector<string> data = CpuUtilization();
   return stol(data[CPUStates::kUser_]) + stol(data[CPUStates::kNice_]) +
@@ -195,7 +194,7 @@ long LinuxParser::ActiveJiffies() {
         stol(data[CPUStates::kSoftIRQ_]) + stol(data[CPUStates::kSteal_]);
 }
 
-// TODO: Read and return the number of idle jiffies for the system
+
 long LinuxParser::IdleJiffies() { 
   vector<string> data = CpuUtilization();
   return stol(data[CPUStates::kIdle_]) + stol(data[CPUStates::kIOwait_]); 
