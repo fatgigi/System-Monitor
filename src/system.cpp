@@ -55,7 +55,6 @@ int System::TotalProcesses() {
     return totalProcesses_; 
 }
 
-
 long System::UpTime() { 
     upTime_ = LinuxParser::UpTime();
     return upTime_; 

@@ -21,5 +21,5 @@ void Processor::GetLinuxParseCpuData(array<long, 2>& cpu) {
 }
 
 float Processor::CalculateDiffUtilization(array<long, 2>& diff_data_) {
-    return (diff_data_[0] * 1.0f)/ diff_data_[1];
+    return static_cast<float>(diff_data_[0]) / static_cast<float>diff_data_[1];
 }
